@@ -1,5 +1,5 @@
 # April Shin
-# CS 170 Algorithms, Fall 2019
+# Fall 2019
 # Project Drop off TA's Home
 
 import random
