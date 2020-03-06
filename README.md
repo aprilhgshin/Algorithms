@@ -58,5 +58,5 @@ Since the cluster-centers are serving as reference-points for our path, we also 
 
 
 April Shin, Fredrik Waaler <br/>
-CS 170 Algorithms <br/>
+Algorithms <br/>
 UC Berkeley
