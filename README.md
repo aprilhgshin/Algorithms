@@ -7,7 +7,7 @@ This is the DTH-algorithm, it will work by itself.
 However, you will need the following modules to run it:
 - tspy
 
-PS: On one of our machines will not run the tspy module, giving an error in scipy.
+Note: On one of our machines will not run the tspy module, giving an error in scipy.
 For the one of us for which it works, we are using python 3.6.3
 
 This library is installable trough pip.
