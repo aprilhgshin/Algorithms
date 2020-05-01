@@ -52,11 +52,7 @@ However, if a new average of intra-cluster average distances is generated, save 
 As the aim is to generate the optimal k number of clusters, run k-medians clustering algorithm to generate k clusters for each potential value k.
 The k value with the highest Dunn Index for the generated clusters is the best approximated k value. Ultimately, we obtain a k clusters with an approximated k to yield a highest Dunn Index.
 
-#### TSP (with additions)
-Since we have clustered using k-medians, the idea is that we can use the clusters as an initial idea of what our path should be. Since the centers should not be too far away from its surrounding nodes (the homes in this case), it shouldn't be too far to walk for the TA’s if they are dropped off at the cluster-center for the cluster containing their home. 
-Since the cluster-centers are serving as reference-points for our path, we also add our starting point to the cluster-centers, if it not already is one, as the path need to contain this point. The algorithm then calculates the distance between the centers using dijkstras, and then uses a tsp-approximation algorithm (pip library tspy) to find the optimal route in the graph that visits all cluster-centers at least once. The algorithm then modifies the suggested TSP-tour to make sure that we start and end at the starting location provided in the input. The car will not deviate from this suggested tour during its run. Finally, to determine where to drop off the different TA's, the algorithm analyzes all the nodes that the car will be visiting on it's tour, and decides what TA's is optimal to drop off at any node. After the algorithm has decided on its path for traversal and its drop-off locations, it proceeds to write the results to the specified output file. 
-
-### Justification Behind Using K-Medians Clustering and Dunn Index
+##### Justification Behind Using K-Medians Clustering and Dunn Index
 We initially thought to use the k-cluster algorithm from the course textbook. However, the given
 algorithm generated clusters in one iteration. We realized to generate a set of clusters we have
 many options and generating one set of clusters does not guarantee us an optimal set of
@@ -73,6 +69,9 @@ had to look at other values. Therefore, we settled with the Dunn Index, as it wa
 dictate whether the diameter of each cluster was minimized while the distance between each
 cluster was maximized.
 
-April Shin, Fredrik Waaler <br/>
+#### TSP (with additions)
+Since we have clustered using k-medians, the idea is that we can use the clusters as an initial idea of what our path should be. Since the centers should not be too far away from its surrounding nodes (the homes in this case), it shouldn't be too far to walk for the TA’s if they are dropped off at the cluster-center for the cluster containing their home. 
+Since the cluster-centers are serving as reference-points for our path, we also add our starting point to the cluster-centers, if it not already is one, as the path need to contain this point. The algorithm then calculates the distance between the centers using dijkstras, and then uses a tsp-approximation algorithm (pip library tspy) to find the optimal route in the graph that visits all cluster-centers at least once. The algorithm then modifies the suggested TSP-tour to make sure that we start and end at the starting location provided in the input. The car will not deviate from this suggested tour during its run. Finally, to determine where to drop off the different TA's, the algorithm analyzes all the nodes that the car will be visiting on it's tour, and decides what TA's is optimal to drop off at any node. After the algorithm has decided on its path for traversal and its drop-off locations, it proceeds to write the results to the specified output file. 
+
 Algorithms <br/>
 UC Berkeley
